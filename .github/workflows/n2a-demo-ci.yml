@@ -1,0 +1,26 @@
+name: HelpUS Admin N2-A DEMO Visibility
+on:
+  push:
+    branches: ['feat/n2a-*']
+  pull_request:
+    branches: ['master']
+jobs:
+  demo-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-fund
+      - run: npm run build
+      - name: Verify unknown and demonstration labels
+        shell: bash
+        run: |
+          grep -q 'MODO DEMONSTRAÇÃO' src/App.tsx
+          grep -q "'UNKNOWN'" src/App.tsx
+          if grep -Eq "status: 'ONLINE'|100% Online & Monitorados" src/App.tsx; then
+            echo 'False-live hardcoded status remains' >&2; exit 1
+          fi
