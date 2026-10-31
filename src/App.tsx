@@ -17,7 +17,7 @@ interface SubdomainHealth {
   domain: string;
   name: string;
   category: string;
-  status: 'ONLINE' | 'MANUTENÇÃO';
+  status: 'UNKNOWN';
   latency: string;
   uptime: string;
 }
@@ -37,21 +37,21 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<'overview' | 'leads' | 'health' | 'analytics'>('overview');
 
   const subdomains: SubdomainHealth[] = [
-    { domain: 'hub.helpusbr.com', name: 'HelpUS Hub Central', category: 'Portal Main', status: 'ONLINE', latency: '42ms', uptime: '99.98%' },
-    { domain: 'search.helpusbr.com', name: 'HelpUS Search Engine', category: 'IA & Busca', status: 'ONLINE', latency: '38ms', uptime: '99.99%' },
-    { domain: 'voice.helpusbr.com', name: 'HelpUS Voice SaaS', category: 'Áudio Neural', status: 'ONLINE', latency: '55ms', uptime: '99.95%' },
-    { domain: 'agent.helpusbr.com', name: 'HelpUS Agent Studio', category: 'Agentes IA', status: 'ONLINE', latency: '40ms', uptime: '100%' },
-    { domain: 'realestate.helpusbr.com', name: 'HelpUS Imóveis Pro', category: 'Imobiliária', status: 'ONLINE', latency: '65ms', uptime: '99.90%' },
-    { domain: 'nexoai.helpusbr.com', name: 'NexosAI Cloud', category: 'IA & Mesh', status: 'ONLINE', latency: '48ms', uptime: '99.99%' },
-    { domain: 'health.helpusbr.com', name: 'HelpUS Saúde', category: 'Telemedicina', status: 'ONLINE', latency: '50ms', uptime: '99.92%' },
-    { domain: 'usmle.helpusbr.com', name: 'USMLE Prep', category: 'Educação Médica', status: 'ONLINE', latency: '45ms', uptime: '99.97%' },
-    { domain: 'visa.helpusbr.com', name: 'HelpUS Visa', category: 'Vistos EUA', status: 'ONLINE', latency: '52ms', uptime: '99.94%' },
-    { domain: 'wagnerdriver.helpusbr.com', name: 'Executive Driver', category: 'Mobilidade VIP', status: 'ONLINE', latency: '49ms', uptime: '99.91%' },
-    { domain: 'jobs.helpusbr.com', name: 'HelpUS Jobs', category: 'Carreiras', status: 'ONLINE', latency: '58ms', uptime: '99.89%' },
-    { domain: 'pizza.helpusbr.com', name: 'HelpUS Gourmet', category: 'Gastronomia', status: 'ONLINE', latency: '44ms', uptime: '99.96%' },
-    { domain: 'memoriaviva.helpusbr.com', name: 'Memória Viva', category: 'Cultura', status: 'ONLINE', latency: '60ms', uptime: '99.93%' },
-    { domain: 'barber.helpusbr.com', name: 'Márcio Top Barber', category: 'Barbearia', status: 'ONLINE', latency: '41ms', uptime: '99.99%' },
-    { domain: 'neuro.eduardomagalhaes.helpusbr.com', name: 'Neuro Dr. Eduardo', category: 'Neurologia', status: 'ONLINE', latency: '47ms', uptime: '99.98%' }
+    { domain: 'hub.helpusbr.com', name: 'HelpUS Hub Central', category: 'Portal Main', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'search.helpusbr.com', name: 'HelpUS Search Engine', category: 'IA & Busca', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'voice.helpusbr.com', name: 'HelpUS Voice SaaS', category: 'Áudio Neural', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'agent.helpusbr.com', name: 'HelpUS Agent Studio', category: 'Agentes IA', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'realestate.helpusbr.com', name: 'HelpUS Imóveis Pro', category: 'Imobiliária', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'nexoai.helpusbr.com', name: 'NexosAI Cloud', category: 'IA & Mesh', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'health.helpusbr.com', name: 'HelpUS Saúde', category: 'Telemedicina', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'usmle.helpusbr.com', name: 'USMLE Prep', category: 'Educação Médica', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'visa.helpusbr.com', name: 'HelpUS Visa', category: 'Vistos EUA', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'wagnerdriver.helpusbr.com', name: 'Executive Driver', category: 'Mobilidade VIP', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'jobs.helpusbr.com', name: 'HelpUS Jobs', category: 'Carreiras', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'pizza.helpusbr.com', name: 'HelpUS Gourmet', category: 'Gastronomia', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'memoriaviva.helpusbr.com', name: 'Memória Viva', category: 'Cultura', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'barber.helpusbr.com', name: 'Márcio Top Barber', category: 'Barbearia', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' },
+    { domain: 'neuro.eduardomagalhaes.helpusbr.com', name: 'Neuro Dr. Eduardo', category: 'Neurologia', status: 'UNKNOWN', latency: 'Não mensurada', uptime: 'Não mensurado' }
   ];
 
   const [leads] = useState<Lead[]>([
@@ -126,13 +126,14 @@ export default function App() {
         </div>
       </header>
 
+      <div role="status" className="bg-amber-950 border-b border-amber-700 text-amber-200 px-6 py-3 text-center font-bold text-sm">MODO DEMONSTRAÇÃO — DADOS SINTÉTICOS. Nenhum uptime, latência, lead ou agente aqui representa telemetria ao vivo.</div>
       {/* Tabs Subheader */}
       <div className="border-b border-slate-800 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 overflow-x-auto py-3">
           {[
             { id: 'overview', label: '📊 Visão Geral', icon: Activity },
             { id: 'leads', label: '⚡ Leads Capturados', icon: Users },
-            { id: 'health', label: '🟢 Uptime dos Subdomínios', icon: Server },
+            { id: 'health', label: 'Status dos Subdomínios (não monitorados)', icon: Server },
             { id: 'analytics', label: '📈 Métricas de Pesquisa', icon: TrendingUp }
           ].map((tab) => (
             <button
@@ -157,23 +158,23 @@ export default function App() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-2">
             <div className="flex items-center justify-between text-slate-400">
-              <span className="text-xs font-extrabold uppercase tracking-wider">Subdomínios Ativos</span>
+              <span className="text-xs font-extrabold uppercase tracking-wider">Subdomínios Cadastrados (DEMO)</span>
               <Server className="w-5 h-5 text-emerald-400" />
             </div>
-            <div className="text-3xl font-extrabold text-white">18</div>
+            <div className="text-3xl font-extrabold text-white">{subdomains.length}</div>
             <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5" /> 100% Online & Monitorados
+              <CheckCircle2 className="w-3.5 h-3.5" /> Telemetria indisponível — UNKNOWN
             </span>
           </div>
 
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-2">
             <div className="flex items-center justify-between text-slate-400">
-              <span className="text-xs font-extrabold uppercase tracking-wider">Total de Leads IA</span>
+              <span className="text-xs font-extrabold uppercase tracking-wider">Leads Sintéticos (DEMO)</span>
               <Users className="w-5 h-5 text-sky-400" />
             </div>
             <div className="text-3xl font-extrabold text-white">1,420</div>
             <span className="text-xs text-sky-400 font-semibold flex items-center gap-1">
-              <TrendingUp className="w-3.5 h-3.5" /> +18.4% este mês
+              <TrendingUp className="w-3.5 h-3.5" /> Dados fictícios, sem crescimento medido
             </span>
           </div>
 
@@ -182,7 +183,7 @@ export default function App() {
               <span className="text-xs font-extrabold uppercase tracking-wider">Buscas Realizadas</span>
               <Search className="w-5 h-5 text-purple-400" />
             </div>
-            <div className="text-3xl font-extrabold text-white">38.9k</div>
+            <div className="text-3xl font-extrabold text-white">Não mensurado</div>
             <span className="text-xs text-purple-400 font-semibold">
               search.helpusbr.com
             </span>
@@ -190,7 +191,7 @@ export default function App() {
 
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-2">
             <div className="flex items-center justify-between text-slate-400">
-              <span className="text-xs font-extrabold uppercase tracking-wider">Agentes Virtuais IA</span>
+              <span className="text-xs font-extrabold uppercase tracking-wider">Agentes Demonstrativos (DEMO)</span>
               <Bot className="w-5 h-5 text-amber-400" />
             </div>
             <div className="text-3xl font-extrabold text-white">24</div>
@@ -204,7 +205,7 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6">
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-                <h3 className="text-lg font-extrabold text-white">Últimos Leads Capturados</h3>
+                <h3 className="text-lg font-extrabold text-white">Exemplos de Leads Sintéticos (DEMO)</h3>
                 <button
                   onClick={() => setActiveTab('leads')}
                   className="text-xs font-bold text-emerald-400 hover:underline"
@@ -272,7 +273,7 @@ export default function App() {
 
         {activeTab === 'leads' && (
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6">
-            <h3 className="text-lg font-extrabold text-white">Central de Leads & Oportunidades</h3>
+            <h3 className="text-lg font-extrabold text-white">Leads Sintéticos — Demonstração</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs text-slate-300">
                 <thead className="bg-slate-950 text-slate-400 font-extrabold uppercase border-b border-slate-800">
